@@ -18,10 +18,28 @@ Just write the following code into the Podfile, it will automatically read the b
 
 ### Manually
 
-You can also manually specify the bundle identifier and team under different configs. For example, I want to set the bundle identifier of the Debug config to com.xxx.app and the team to xxooxxoo.
+You can also manually specify the bundle identifier and team under different configs. For example:
+
+> Debug
+bundle identifier: com.aaa.bbb
+team: ABCDEFG
+
+> Release
+bundle identifier: com.ccc.ddd
+team: HIJKLMN
+
+> Profile
+bundle identifier: com.xxx.eee
+team: ASDFGHJ
+
+
 
 ```
 plugin 'cocoapods-pod-sign'
-config_pod_bundle_id_and_team_id({'Debug' => {:bundle_id => 'com.xxx.app', :team_id => 'xxooxxoo'}})
+config_pod_bundle_id_and_team_id({
+  'Debug' => {:bundle_id => 'com.aaa.bbb', :team_id => 'ABCDEFG'},
+  'Release' => {:bundle_id => 'com.ccc.ddd', :team_id => 'HIJKLMN'},
+  'Profile' => {:bundle_id => 'com.xxx.eee', :team_id => 'ASDFGHJ'}
+})
 ```
 
