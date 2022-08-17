@@ -43,7 +43,7 @@ module Pod
       target = aggregate_targets.first.user_project.root_object.targets.first
       target&.build_configurations&.each do |config|
           xcconfig_hash ||=
-            if config.base_configuration_reference.real_path.exist?
+            if config.base_configuration_reference&.real_path&.exist?
               Xcodeproj::Config.new(config.base_configuration_reference.real_path).to_hash
             else
               {}
