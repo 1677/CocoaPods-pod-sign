@@ -1,0 +1,6 @@
+use_frameworks!
+target 'bundleSign_Tests' do
+  pod 'bundleSign', :path => '../'
+  
+  
+end

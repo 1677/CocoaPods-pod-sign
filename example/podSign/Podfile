@@ -1,0 +1,20 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+
+target 'podSign' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  # use_frameworks!
+  
+  plugin 'cocoapods-pod-sign'
+  
+  config_pod_bundle_id_and_team_id({
+    'Debug' => {:bundle_id => 'com.aaa.bbb', :team_id => 'ABCDEFG'},
+    'Release' => {:bundle_id => 'com.ccc.ddd', :team_id => 'HIJKLMN'},
+    'Profile' => {:bundle_id => 'com.xxx.eee', :team_id => 'ASDFGHJ'}
+  })
+
+  # Pods for podSign
+  pod 'bundleSign', :path => './bundleSign'
+
+end

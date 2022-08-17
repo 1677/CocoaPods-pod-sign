@@ -1,0 +1,22 @@
+{
+  "name": "bundleSign",
+  "version": "0.1.0",
+  "summary": "A short description of bundleSign.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/liuxiaoliang01/bundleSign",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "liuxiaoliang01": "liuxiaoliang.01@bytedance.com"
+  },
+  "source": {
+    "git": "https://github.com/liuxiaoliang01/bundleSign.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "bundleSign/Classes/**/*"
+}
