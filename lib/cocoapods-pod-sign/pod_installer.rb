@@ -14,6 +14,8 @@ module Pod
                   pods_project.targets
                 end
       targets.each do |target|
+        next unless target.respond_to?('product_type') && target.product_type == 'com.apple.product-type.bundle'
+
         target.build_configurations.each do |config|
           sign_config = $pod_sign_configurations_hash[config.name]
           next unless sign_config.instance_of?(Hash)
