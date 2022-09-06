@@ -10,6 +10,17 @@ cocoapods-pod-sign is a tool to help you set cocopads bundle identifier and team
 
 ## Usage
 
+### Recommended
+
+I have received several user feedback encountering errors. I just added a new method to skip the signature. I recommend using the skip signature setting.
+
+```
+plugin 'cocoapods-pod-sign'
+skip_pod_bundle_sign
+```
+
+## No recommended
+
 There are two ways to use it, one is to automatically obtain the bundle identifier and team, and the other is to set it manually.
 
 ### Automatically
