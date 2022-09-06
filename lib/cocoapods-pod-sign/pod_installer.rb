@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+require 'cocoapods-pod-sign/pod_sign_storage'
 
 module Pod
   class Installer
@@ -6,7 +7,9 @@ module Pod
     alias_method :origin_run_podfile_post_install_hook, :run_podfile_post_install_hook
     def run_podfile_post_install_hook
 
-      pod_sign_extract_bundle_id_and_team_id_from_user_project if $pod_sign_configurations_hash.empty?
+      storage = PodSignStorage.instance
+
+      pod_sign_extract_bundle_id_and_team_id_from_user_project if storage.configurations.empty? && !storage.skip_sign
 
       targets = if installation_options.generate_multiple_pod_projects
                   pod_target_subprojects.flat_map { |p| p.targets }
@@ -17,7 +20,11 @@ module Pod
         next unless target.respond_to?('product_type') && target.product_type == 'com.apple.product-type.bundle'
 
         target.build_configurations.each do |config|
-          sign_config = $pod_sign_configurations_hash[config.name]
+          if storage.skip_sign
+            config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
+            next
+          end
+          sign_config = storage.configurations[config.name]
           next unless sign_config.instance_of?(Hash)
 
           config.build_settings['PRODUCT_BUNDLE_IDENTIFIER'] = sign_config[:bundle_id]
@@ -62,11 +69,12 @@ module Pod
       sign_identity = build_settings['CODE_SIGN_IDENTITY']
       return unless bundle_id && team_id && config_name
 
-      $pod_sign_configurations_hash[config_name] = { bundle_id: bundle_id,
-                                                     team_id: team_id,
-                                                     sign_style: sign_style,
-                                                     sign_identity: sign_identity }
-      
+      storage = PodSignStorage.instance
+      storage.configurations[config_name] = { bundle_id: bundle_id,
+                                              team_id: team_id,
+                                              sign_style: sign_style,
+                                              sign_identity: sign_identity }
+
     end
   end
 end

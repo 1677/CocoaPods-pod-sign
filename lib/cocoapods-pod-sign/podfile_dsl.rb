@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
-$pod_sign_configurations_hash = {}
+require 'cocoapods-pod-sign/pod_sign_storage'
+
 module Pod
   class Podfile
     module DSL
@@ -21,7 +22,13 @@ module Pod
           end
         end
         UI.info 'config_pod_bundle_id_and_team_id parameters setup success'
-        $pod_sign_configurations_hash = configurations
+        storage = PodSignStorage.instance
+        storage.configurations = configurations
+      end
+
+      def skip_pod_bundle_sign
+        storage = PodSignStorage.instance
+        storage.skip_sign = true
       end
     end
   end
