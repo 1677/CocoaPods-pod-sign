@@ -25,7 +25,7 @@ There are two ways to use it, one is to automatically obtain the bundle identifi
 
 ### Automatically
 
-Just write the following code into the Podfile, it will automatically read the bundle identifier and team from the main project.
+Just write the following code into the Podfile, it will automatically read the bundle identifier（version 1.3.x  no longer sets bundle identifier） and team from the main project.
 
     plugin 'cocoapods-pod-sign'
 

@@ -6,13 +6,15 @@ target 'podSign' do
   # Comment the next line if you don't want to use dynamic frameworks
   # use_frameworks!
   
-  plugin 'cocoapods-pod-sign'
+  plugin 'cocoapods-pod-sign' # automatically read the bundle identifier（version 2.x.x  no longer sets bundle identifier） and team from the main project.
+  skip_pod_bundle_sign # forbid pod sign
   
-  config_pod_bundle_id_and_team_id({
-    'Debug' => {:bundle_id => 'com.aaa.bbb', :team_id => 'ABCDEFG'},
-    'Release' => {:bundle_id => 'com.ccc.ddd', :team_id => 'HIJKLMN'},
-    'Profile' => {:bundle_id => 'com.xxx.eee', :team_id => 'ASDFGHJ'}
-  })
+  # manually specify the bundle identifier and team under different configs
+#  config_pod_bundle_id_and_team_id({
+#    'Debug' => {:bundle_id => 'com.aaa.bbb', :team_id => 'ABCDEFG'},
+#    'Release' => {:bundle_id => 'com.ccc.ddd', :team_id => 'HIJKLMN'},
+#    'Profile' => {:bundle_id => 'com.xxx.eee', :team_id => 'ASDFGHJ'}
+#  })
 
   # Pods for podSign
   pod 'bundleSign', :path => './bundleSign'

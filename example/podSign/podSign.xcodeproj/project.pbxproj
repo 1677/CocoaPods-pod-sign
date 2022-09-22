@@ -14,9 +14,13 @@
 		2229B7ED28AD16870038653C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2229B7EC28AD16870038653C /* Assets.xcassets */; };
 		2229B7F028AD16870038653C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2229B7EE28AD16870038653C /* LaunchScreen.storyboard */; };
 		2229B7F328AD16870038653C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2229B7F228AD16870038653C /* main.m */; };
+		2E3CEF12322AA2E7389B54C9 /* libPods-podSign.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E68FEE90580D7ADB2484B312 /* libPods-podSign.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		033D405A2FB545AE554ACFE9 /* Pods-podSign.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-podSign.profile.xcconfig"; path = "Target Support Files/Pods-podSign/Pods-podSign.profile.xcconfig"; sourceTree = "<group>"; };
+		0CFF07BBF1AE520F3A4E351F /* Pods-podSign.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-podSign.debug.xcconfig"; path = "Target Support Files/Pods-podSign/Pods-podSign.debug.xcconfig"; sourceTree = "<group>"; };
+		1A6DFECA83645495A261B2C9 /* Pods-podSign.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-podSign.release.xcconfig"; path = "Target Support Files/Pods-podSign/Pods-podSign.release.xcconfig"; sourceTree = "<group>"; };
 		2229B7DD28AD16850038653C /* podSign.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = podSign.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2229B7E028AD16850038653C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2229B7E128AD16850038653C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -29,6 +33,7 @@
 		2229B7EF28AD16870038653C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2229B7F128AD16870038653C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2229B7F228AD16870038653C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E68FEE90580D7ADB2484B312 /* libPods-podSign.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-podSign.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E3CEF12322AA2E7389B54C9 /* libPods-podSign.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +53,8 @@
 			children = (
 				2229B7DF28AD16850038653C /* podSign */,
 				2229B7DE28AD16850038653C /* Products */,
+				37A5A9EAF7A15FF1C10AEC48 /* Pods */,
+				CA92FB517EC1635A83158A31 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,6 +84,24 @@
 			path = podSign;
 			sourceTree = "<group>";
 		};
+		37A5A9EAF7A15FF1C10AEC48 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0CFF07BBF1AE520F3A4E351F /* Pods-podSign.debug.xcconfig */,
+				1A6DFECA83645495A261B2C9 /* Pods-podSign.release.xcconfig */,
+				033D405A2FB545AE554ACFE9 /* Pods-podSign.profile.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CA92FB517EC1635A83158A31 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E68FEE90580D7ADB2484B312 /* libPods-podSign.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -83,9 +109,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2229B7F628AD16870038653C /* Build configuration list for PBXNativeTarget "podSign" */;
 			buildPhases = (
+				DB94DF9930CB0BB9200BEF40 /* [CP] Check Pods Manifest.lock */,
 				2229B7D928AD16850038653C /* Sources */,
 				2229B7DA28AD16850038653C /* Frameworks */,
 				2229B7DB28AD16850038653C /* Resources */,
+				C7A659FC510D477DD25605D1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -140,6 +168,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C7A659FC510D477DD25605D1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-podSign/Pods-podSign-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-podSign/Pods-podSign-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-podSign/Pods-podSign-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB94DF9930CB0BB9200BEF40 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-podSign-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2229B7D928AD16850038653C /* Sources */ = {
@@ -287,13 +357,14 @@
 		};
 		2229B7F728AD16870038653C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CFF07BBF1AE520F3A4E351F /* Pods-podSign.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = YYLJMVA5FX;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = podSign/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -307,7 +378,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.aaa.bbb;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lvsongguo.www.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -317,6 +388,7 @@
 		};
 		2229B7F828AD16870038653C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A6DFECA83645495A261B2C9 /* Pods-podSign.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -398,9 +470,11 @@
 		};
 		2288DF7128AD1EC300983D40 /* Profile */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 033D405A2FB545AE554ACFE9 /* Pods-podSign.profile.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
@@ -417,7 +491,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.xxx.eee;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lvsongguo.www.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

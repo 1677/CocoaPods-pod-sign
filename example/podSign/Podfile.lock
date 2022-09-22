@@ -1,0 +1,16 @@
+PODS:
+  - bundleSign (0.1.0)
+
+DEPENDENCIES:
+  - bundleSign (from `./bundleSign`)
+
+EXTERNAL SOURCES:
+  bundleSign:
+    :path: "./bundleSign"
+
+SPEC CHECKSUMS:
+  bundleSign: 8fa720adfff2d8b5873bb9ca197d670614cce05f
+
+PODFILE CHECKSUM: 06f86eec5843bf02524d3efd1c1c857234a1aa84
+
+COCOAPODS: 1.10.2

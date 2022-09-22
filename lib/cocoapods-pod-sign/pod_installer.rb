@@ -9,7 +9,7 @@ module Pod
 
       storage = PodSignStorage.instance
 
-      pod_sign_extract_bundle_id_and_team_id_from_user_project if storage.configurations.empty? && !storage.skip_sign
+      pod_sign_extract_team_id_from_user_project if storage.configurations.empty? && !storage.skip_sign
 
       targets = if installation_options.generate_multiple_pod_projects
                   pod_target_subprojects.flat_map { |p| p.targets }
@@ -27,7 +27,7 @@ module Pod
           sign_config = storage.configurations[config.name]
           next unless sign_config.instance_of?(Hash)
 
-          config.build_settings['PRODUCT_BUNDLE_IDENTIFIER'] = sign_config[:bundle_id]
+          config.build_settings['PRODUCT_BUNDLE_IDENTIFIER'] = sign_config[:bundle_id] unless sign_config[:bundle_id].nil?
           config.build_settings['DEVELOPMENT_TEAM'] = sign_config[:team_id]
           config.build_settings['CODE_SIGN_STYLE'] = if sign_config[:sign_style]
                                                        sign_config[:sign_style]
@@ -48,7 +48,7 @@ module Pod
 
     private
 
-    def pod_sign_extract_bundle_id_and_team_id_from_user_project
+    def pod_sign_extract_team_id_from_user_project
       target = aggregate_targets.first.user_project.root_object.targets.first
       target&.build_configurations&.each do |config|
           xcconfig_hash ||=
@@ -57,21 +57,19 @@ module Pod
             else
               {}
             end
-          pod_sign_extract_bundle_id_and_team_id(xcconfig_hash, config.name)
-          pod_sign_extract_bundle_id_and_team_id(config.build_settings, config.name)
+          pod_sign_extract_team_id(xcconfig_hash, config.name)
+          pod_sign_extract_team_id(config.build_settings, config.name)
         end
     end
 
-    def pod_sign_extract_bundle_id_and_team_id(build_settings, config_name)
-      bundle_id = build_settings['PRODUCT_BUNDLE_IDENTIFIER']
+    def pod_sign_extract_team_id(build_settings, config_name)
       team_id = build_settings['DEVELOPMENT_TEAM']
       sign_style = build_settings['CODE_SIGN_STYLE']
       sign_identity = build_settings['CODE_SIGN_IDENTITY']
-      return unless bundle_id && team_id && config_name
+      return unless team_id && config_name
 
       storage = PodSignStorage.instance
-      storage.configurations[config_name] = { bundle_id: bundle_id,
-                                              team_id: team_id,
+      storage.configurations[config_name] = { team_id: team_id,
                                               sign_style: sign_style,
                                               sign_identity: sign_identity }
 
