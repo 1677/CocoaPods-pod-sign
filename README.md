@@ -1,5 +1,8 @@
 # cocoapods-pod-sign
 
+## ⚠️DEPRECATED
+Since the Cocoapods 1.12.0 version has resolved this problem, this code repository is no longer updated
+
 ## English | [中文](https://www.jianshu.com/p/58d3202411c0)
 
 cocoapods-pod-sign is a tool to help you set cocopads bundle identifier and team. In order to solve the compilation error of Xcode14.
